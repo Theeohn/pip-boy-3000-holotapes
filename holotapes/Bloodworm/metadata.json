@@ -17,19 +17,19 @@
       "label": "Eat (Sound Effect)",
       "name": "HOLO/BLOODWORM/bloodworm-eat.wav",
       "sizeKB": 10,
-      "url": "assets/optional/bloodworm-eat.wav"
+      "url": "assets/bloodworm-eat.wav"
     },
     {
       "label": "Die (Sound Effect)",
       "name": "HOLO/BLOODWORM/bloodworm-die.wav",
       "sizeKB": 12,
-      "url": "assets/optional/bloodworm-die.wav"
+      "url": "assets/bloodworm-die.wav"
     },
     {
       "label": "Start (Sound Effect)",
       "name": "HOLO/BLOODWORM/bloodworm-start.wav",
       "sizeKB": 19,
-      "url": "assets/optional/bloodworm-start.wav"
+      "url": "assets/bloodworm-start.wav"
     }
   ]
 }
