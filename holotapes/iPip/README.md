@@ -35,7 +35,7 @@ MUSIC/
 
 - Left knob scroll: Move selection up / down in list
 - Left knob press: Open station / play or stop song / navigate pages
-- Right knob scroll: Same as left knob (secondary scroll)
+- Right knob scroll: Adjust volume
 
 ### Instructions
 
