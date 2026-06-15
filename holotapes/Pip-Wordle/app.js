@@ -456,8 +456,12 @@
     moveCursor(0, dir > 0 ? 1 : -1);
   }
 
-  function onPress() {
+  function onPress(e) {
+    // Stamp the click time on BOTH edges so the spurious knob rotation the
+    // physical click generates always lands inside the ignore window in
+    // onKnob1 (whether it fires just before or just after the press).
     lastClickTime = Date.now();
+    if (e && !e.state) return;
     if (phase === 'title') {
       newGame();
       render();
@@ -487,7 +491,7 @@
     if (typeof ENC1_PRESS !== 'undefined') {
       watchEnter = setWatch(onPress, ENC1_PRESS, {
         repeat: true,
-        edge: 'rising',
+        edge: 'both',
         debounce: 50,
       });
     }
