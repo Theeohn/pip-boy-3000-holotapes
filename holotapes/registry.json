@@ -171,6 +171,24 @@
     "storageOptional": []
   },
   {
+    "id": "killteamtracker",
+    "name": "Kill Team Tracker",
+    "author": "@SethSanchez",
+    "version": "1.0.0",
+    "description": "A Pip-powered counter for 40k Kill Team. Will track your VP, CP, and the TP.",
+    "icon": "KillTeamTracker/assets/killteam.png",
+    "tags": "game,tool",
+    "type": "game",
+    "readme": "KillTeamTracker/README.md",
+    "custom": "",
+    "storage": [
+      {
+        "name": "HOLO/KILLTEAM/APP.js",
+        "url": "KillTeamTracker/app.min.js"
+      }
+    ]
+  },
+  {
     "id": "mtgtracker",
     "name": "MTG Life Counter",
     "author": "@tylerjbartlett",
@@ -205,6 +223,24 @@
       }
     ],
     "storageOptional": []
+  },
+  {
+    "id": "PIPCALC",
+    "name": "Pip-Calc",
+    "author": "@tylerjbartlett",
+    "version": "1.0.0",
+    "description": "A simple calculator app for the Pip-Boy 3000.",
+    "icon": "Pip-Calc/assets/pipcalc.png",
+    "tags": "tool",
+    "type": "app",
+    "readme": "Pip-Calc/README.md",
+    "custom": "",
+    "storage": [
+      {
+        "name": "HOLO/PIPCALC/APP.js",
+        "url": "Pip-Calc/app.min.js"
+      }
+    ]
   },
   {
     "id": "piptactoe",
