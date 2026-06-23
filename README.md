@@ -174,7 +174,7 @@ Follow the guide below to create your own custom Holotapes for the Pip-Boy 3000!
 
    The metadata `id` must contain only lowercase letters, numbers, and hyphens;
    `version` must use semantic versioning; and `type` must be exactly `app` or
-   `game`. Do not edit `holotapes/registry.json` manually—`npm run build`
+   `game`. Do not edit `holotapes/registry.json` manually. `npm run build`
    generates it from each `metadata.json` file.
 
 4. Document the description, controls, installation, tested firmware, and
@@ -468,22 +468,22 @@ print(E.getSizeOf(this['\xFF'], 1).sort((a, b) => a.size - b.size));
    ```sh
    git checkout main
    git pull origin main
-   git checkout TheGOAT
+   git checkout -b <my-branch>
    git merge main
-   git push origin TheGOAT
+   git push origin <my-branch>
    ```
 
-   Alternatively, merge the original repository's `main` branch directly into
-   your checked-out working branch:
+   To merge all the new updates from the original repository's `main` branch
+   directly into your checked out working branch:
 
    ```sh
-   git checkout TheGOAT
+   git checkout <my-branch>
    git pull https://github.com/CodyTolene/pip-boy-3000-holotapes.git main
-   git push origin TheGOAT
+   git push origin <my-branch>
    ```
 
-   Replace `TheGOAT` with your branch name. If the branch does not exist yet,
-   create it from the updated `main` branch with:
+   Replace `<my-branch>` with your branch name. If the branch does not exist
+   yet, create it from the updated `main` branch with:
 
    ```sh
    git checkout -b my-holotape
@@ -515,10 +515,10 @@ print(E.getSizeOf(this['\xFF'], 1).sort((a, b) => a.size - b.size));
    - The app can be opened, closed, and opened again without leaking resources.
    - Memory usage is acceptable before, during, and after the app runs.
 
-7. Stage, commit, and push your changes. For a branch named `TheGOAT`:
+7. Stage, commit, and push your changes. For a branch named `<my-branch>`:
 
    ```sh
-   git add -A && git commit -m "My change description" && git push origin TheGOAT
+   git add -A && git commit -m "My change description" && git push origin <my-branch>
    ```
 
 8. [Open a pull request](https://github.com/CodyTolene/pip-boy-3000-holotapes/pulls)
