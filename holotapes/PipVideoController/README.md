@@ -1,24 +1,32 @@
-\# PipVideoController
+# PipVideoController
 
-## Controls
+### Info
 
-\* \*\*Left Scroll Wheel: \*\* Turn it up or down to navigate the app \*
-\*\*Left Scroll Wheel Press: \*\* Push it on start once bridge.py is running on
-your pc to sync with your pc, then use it again to select your highlighted video
+**Author(s):**
 
-## Setup \& Installation
+- [@OrionMissesRust](https://github.com/OrionMissesRust)
 
-1. Follow the instructions at the following GitHub repository for the full setup
-   including setting up bridge.py
+### Controls
 
-&#x20; https://github.com/OrionMissesRust/PipVideoController
+Left Scroll Wheel: Scroll up or down to navigate the app.
 
-\## Hardware and Firmware Tested
+Left Scroll Wheel Press: Push it on start once `bridge.py` is running on your pc
+to sync with your pc, then use it again to select your highlighted video.
 
-\* \*\*OS:\*\* Pip-Boy OS framework \* \*\*Hardware:\*\* The Pip-Boy 3000 Device
-itself
+### Setup & Installation
 
-## Credits
+Follow the instructions at the following GitHub repository for the full setup
+including setting up `bridge.py`:
+
+https://github.com/OrionMissesRust/PipVideoController
+
+### Hardware and Firmware Tested
+
+OS: Pip-Boy OS framework
+
+Hardware: The Pip-Boy 3000 Device itself
+
+### Credits
 
 All work is my own (OrionMissesRust)
 

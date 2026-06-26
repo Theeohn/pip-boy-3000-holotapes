@@ -329,6 +329,24 @@
     "storageOptional": []
   },
   {
+    "id": "pipchess",
+    "name": "PipChess",
+    "author": "@OrionMissesRust",
+    "version": "1.0.0",
+    "description": "Chess on the Pip-Boy!",
+    "icon": "PipChess/assets/missing-icon.png",
+    "previews": [],
+    "type": "game",
+    "readme": "PipChess/README.md",
+    "storage": [
+      {
+        "name": "HOLO/PIPCHESS/APP.JS",
+        "url": "PipChess/app.min.js"
+      }
+    ],
+    "storageOptional": []
+  },
+  {
     "id": "pipman",
     "name": "PIPMAN",
     "author": "@McBeefy34",
