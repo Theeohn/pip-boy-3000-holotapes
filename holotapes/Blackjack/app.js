@@ -218,7 +218,8 @@
       .drawString('DEALER', 60, 69);
     h.setColor(3).drawRect(144, 55, 188, 83);
     h.drawRect(145, 56, 187, 82);
-    h.setFontMonofonto18().setFontAlign(0, 0)
+    h.setFontMonofonto18()
+      .setFontAlign(0, 0)
       .drawString('' + dealerScore, 166, 69);
     drawHand(dealerHand, 89, hideDealer);
 
@@ -227,15 +228,12 @@
     h.setColor(2)
       .setFontMonofonto18()
       .setFontAlign(-1, 0)
-      .drawString(
-        'PLAYER',
-        60,
-        177,
-      );
+      .drawString('PLAYER', 60, 177);
     if (playerHand.length > 0) {
       h.setColor(3).drawRect(144, 163, 188, 191);
       h.drawRect(145, 164, 187, 190);
-      h.setFontMonofonto18().setFontAlign(0, 0)
+      h.setFontMonofonto18()
+        .setFontAlign(0, 0)
         .drawString('' + playerScore, 166, 177);
     }
     drawHand(playerHand, 197, false);
