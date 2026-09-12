@@ -1,4 +1,4 @@
-(function() {
+(function () {
   // MESMETRON launcher.
   //
   // Each screensaver lives in its own file (web.js, ribbon.js, warp.js,
@@ -24,7 +24,7 @@
   // screen (both on initial boot and whenever a long knob1 press backs out
   // of a screensaver), and is stopped the instant a screensaver is launched
   // so it never plays underneath one.
-  const BASE_PATH = "HOLO/MESMETRON/";
+  const BASE_PATH = 'HOLO/MESMETRON/';
   const FRAME_MS = 40;
 
   // Save the original scan effect state to properly restore it on exit
@@ -34,11 +34,13 @@
   Pip.blitOptions.noScanEffect = true;
 
   let mode = 0;
-  let inMenu = 1, menuDirty = 1;
-  let currentModule = null, titleModule = null;
+  let inMenu = 1,
+    menuDirty = 1;
+  let currentModule = null,
+    titleModule = null;
 
   function loadModule(filename) {
-    return eval(require("fs").readFileSync(BASE_PATH + filename))();
+    return eval(require('fs').readFileSync(BASE_PATH + filename))();
   }
 
   Pip.setBrightness(1.0);
@@ -47,7 +49,7 @@
     if (dir) {
       titleModule.move(dir);
       menuDirty = 1;
-      Pip.playSound("SCROLL");
+      Pip.playSound('SCROLL');
     } else {
       const idx = titleModule.getSelected();
       try {
@@ -58,7 +60,7 @@
         currentModule = mod;
         inMenu = 0;
         h.clear();
-        Pip.playSound("SELECT");
+        Pip.playSound('SELECT');
       } catch (err) {
         Pip.errorBox(err);
         menuDirty = 1;
@@ -66,28 +68,36 @@
     }
   }
 
-  function onKnob1(dir, long) {  "ram";
-    if (inMenu) { menuInput(dir); return; }
+  function onKnob1(dir, long) {
+    'ram';
+    if (inMenu) {
+      menuInput(dir);
+      return;
+    }
     if (dir === 0 && long) {
       currentModule.remove();
       currentModule = null;
       inMenu = 1;
       menuDirty = 1;
       titleModule.repaint();
-      Pip.audioStart(BASE_PATH + "wild.wav", { repeat: true });
-      Pip.playSound("TAB");
+      Pip.audioStart(BASE_PATH + 'wild.wav', { repeat: true });
+      Pip.playSound('TAB');
     }
     // Any other knob1 event while a screensaver is active (short press,
     // rotation) belongs to that module's own listener, not this launcher.
   }
 
-  function onKnob2(dir) {  "ram";
-    if (inMenu) { menuInput(dir); }
+  function onKnob2(dir) {
+    'ram';
+    if (inMenu) {
+      menuInput(dir);
+    }
     // knob2 is entirely owned by the active screensaver module once one is
     // loaded - this launcher no longer reacts to it at all.
   }
 
-  function onFrame() {  "ram";
+  function onFrame() {
+    'ram';
     if (inMenu) {
       if (menuDirty) {
         titleModule.draw(h);
@@ -102,23 +112,23 @@
     Pip.lastFlip = getTime();
   }
 
-  Pip.on("knob1", onKnob1);
-  Pip.on("knob2", onKnob2);
+  Pip.on('knob1', onKnob1);
+  Pip.on('knob2', onKnob2);
   h.clear();
-  titleModule = loadModule("TITLE.JS");
+  titleModule = loadModule('TITLE.JS');
   titleModule.init(0);
-  Pip.audioStart(BASE_PATH + "wild.wav", { repeat: true });
+  Pip.audioStart(BASE_PATH + 'wild.wav', { repeat: true });
   const frameInterval = setInterval(onFrame, FRAME_MS);
 
   return {
-    id: "MESMETRON",
+    id: 'MESMETRON',
     notDefault: true,
     fullscreen: true,
-    remove: function() {
+    remove: function () {
       clearInterval(frameInterval);
       if (currentModule) currentModule.remove();
-      Pip.removeListener("knob1", onKnob1);
-      Pip.removeListener("knob2", onKnob2);
+      Pip.removeListener('knob1', onKnob1);
+      Pip.removeListener('knob2', onKnob2);
       Pip.setBrightness(1.0);
       Pip.audioStop();
       h.clear();
@@ -129,6 +139,6 @@
       } else {
         delete Pip.blitOptions.noScanEffect;
       }
-    }
+    },
   };
 });

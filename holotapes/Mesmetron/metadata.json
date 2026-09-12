@@ -8,8 +8,6 @@
   "previews": [],
   "type": "app",
   "readme": "README.md",
-  "storage": [
-    { "name": "HOLO/MESMETRON/APP.JS", "url": "APP.MIN.JS" }
-  ],
+  "storage": [{ "name": "HOLO/MESMETRON/APP.JS", "url": "APP.MIN.JS" }],
   "storageOptional": []
 }

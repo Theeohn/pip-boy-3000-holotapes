@@ -5,7 +5,7 @@
 // That means adding a new screensaver only ever requires editing ONE file:
 // this one. See the ITEMS array below.
 
-(function() {
+(function () {
   // To add your own screensaver:
   //   1. Copy an existing module file (e.g. web.js) as a template, following
   //      its { init(variant), draw(h) } shape.
@@ -17,28 +17,38 @@
   // that when you select it - it shows Pip's standard error box instead of
   // crashing, and drops you back at this menu so you can try something else.
   const ITEMS = [
-    { name: "BOUNCER", file: "bouncer.js" },
-    { name: "FIREWORKS", file: "fireworks.js" },
-    { name: "BURST", file: "burst.js" },
-    { name: "MATRIX", file: "matrix.js" },
-    { name: "RIBBON", file: "ribbon.js" },
-    { name: "SPIRAL", file: "spiral.js" },
-    { name: "SHAPES", file: "shapes.js" },
-    { name: "VORTEX", file: "vortex.js" },
-    { name: "WARP", file: "warp.js" },
-    { name: "WEB", file: "web.js" }
+    { name: 'BOUNCER', file: 'bouncer.js' },
+    { name: 'FIREWORKS', file: 'fireworks.js' },
+    { name: 'BURST', file: 'burst.js' },
+    { name: 'MATRIX', file: 'matrix.js' },
+    { name: 'RIBBON', file: 'ribbon.js' },
+    { name: 'SPIRAL', file: 'spiral.js' },
+    { name: 'SHAPES', file: 'shapes.js' },
+    { name: 'VORTEX', file: 'vortex.js' },
+    { name: 'WARP', file: 'warp.js' },
+    { name: 'WEB', file: 'web.js' },
   ];
-  const BX1 = 90, BY1 = 138, BX2 = 390, BY2 = 280;
-  const ROWY0 = 163, ROWH = 30;
+  const BX1 = 90,
+    BY1 = 138,
+    BX2 = 390,
+    BY2 = 280;
+  const ROWY0 = 163,
+    ROWH = 30;
   // Footer hint box - same width as the list box, sitting just below it.
   // Drawn once from repaint(), never touched by move()/scroll, so it can't
   // be scrolled to or selected.
-  const HY1 = BY2 + 1, HY2 = 316;
+  const HY1 = BY2 + 1,
+    HY2 = 316;
   // Wrapped once here (wrapping is expensive - see the text wrapping rule)
   // rather than re-wrapping on every repaint. Line pitch is measured off the
   // actual rendered glyph height (plus a couple px of breathing room) so the
   // lines can't overlap no matter what the real font metrics turn out to be.
-  const HINT = h.setFont("Monofonto14").wrapString("HOLD LEFT WHEEL TO RETURN TO THIS MENU, SCROLL RIGHT WHEEL FOR VARIANTS", BX2 - BX1 - 20);
+  const HINT = h
+    .setFont('Monofonto14')
+    .wrapString(
+      'HOLD LEFT WHEEL TO RETURN TO THIS MENU, SCROLL RIGHT WHEEL FOR VARIANTS',
+      BX2 - BX1 - 20,
+    );
   const LINEH = h.stringMetrics(HINT[0]).height + 1;
   let selected = 0;
   let scroll = 0;
@@ -67,19 +77,20 @@
     h.setColor(2);
     h.drawRect(BX1, HY1, BX2, HY2);
     h.drawRect(BX1 + 1, HY1 + 1, BX2 - 1, HY2 - 1);
-    h.setFont("Monofonto14").setFontAlign(0, 0);
-    const y0 = (HY1 + HY2) / 2 - LINEH * (HINT.length - 1) / 2 + 3;
-    for (let i = 0; i < HINT.length; i++) h.drawString(HINT[i], 240, y0 + i * LINEH);
+    h.setFont('Monofonto14').setFontAlign(0, 0);
+    const y0 = (HY1 + HY2) / 2 - (LINEH * (HINT.length - 1)) / 2 + 3;
+    for (let i = 0; i < HINT.length; i++)
+      h.drawString(HINT[i], 240, y0 + i * LINEH);
   }
 
   function drawList() {
     h.setColor(0).fillRect(BX1 + 2, BY1 + 2, BX2 - 2, BY2 - 2);
-    h.setFont("Monofonto23").setFontAlign(0, 0);
+    h.setFont('Monofonto23').setFontAlign(0, 0);
 
     for (let i = 0; i < 4 && scroll + i < ITEMS.length; i++) {
       const idx = scroll + i;
       const cy = ROWY0 + i * ROWH;
-      const isSelected = (idx === selected);
+      const isSelected = idx === selected;
 
       if (isSelected) {
         h.setColor(3).fillRect(BX1 + 6, cy - 14, BX2 - 6, cy + 14);
@@ -96,7 +107,7 @@
       if (i === 0 && scroll > 0) {
         h.setColor(isSelected ? 0 : 3);
         for (let dy = 0; dy < 15; dy++) {
-          let w = (dy >> 1);
+          let w = dy >> 1;
           let y = cy - 7 + dy;
           h.drawLine(leftX - w, y, leftX + w, y);
           h.drawLine(rightX - w, y, rightX + w, y);
@@ -107,7 +118,7 @@
       if (i === 3 && scroll + 4 < ITEMS.length) {
         h.setColor(isSelected ? 0 : 3);
         for (let dy = 0; dy < 15; dy++) {
-          let w = (dy >> 1);
+          let w = dy >> 1;
           let y = cy + 7 - dy;
           h.drawLine(leftX - w, y, leftX + w, y);
           h.drawLine(rightX - w, y, rightX + w, y);
@@ -117,21 +128,21 @@
   }
 
   return {
-    id: "MESMETRON_MENU",
-    remove: function() {},
+    id: 'MESMETRON_MENU',
+    remove: function () {},
     items: ITEMS,
-    repaint: function() {
+    repaint: function () {
       drawBackground();
       drawBorder();
       drawHint();
     },
-    init: function(startIndex) {
+    init: function (startIndex) {
       selected = E.clip(startIndex || 0, 0, ITEMS.length - 1);
       scroll = selected > 3 ? selected - 3 : 0;
       if (scroll > ITEMS.length - 4) scroll = Math.max(0, ITEMS.length - 4);
       this.repaint();
     },
-    move: function(dir) {
+    move: function (dir) {
       selected = E.clip(selected + dir, 0, ITEMS.length - 1);
       if (selected < scroll) {
         scroll = selected;
@@ -141,11 +152,12 @@
       if (scroll > ITEMS.length - 4) scroll = Math.max(0, ITEMS.length - 4);
       if (scroll < 0) scroll = 0;
     },
-    getSelected: function() {
+    getSelected: function () {
       return selected;
     },
-    draw: function(h) {  "ram";
+    draw: function (h) {
+      'ram';
       drawList();
-    }
+    },
   };
 });
