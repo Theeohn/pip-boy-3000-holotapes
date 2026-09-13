@@ -18,8 +18,8 @@
   // crashing, and drops you back at this menu so you can try something else.
   const ITEMS = [
     { name: 'BOUNCER', file: 'bouncer.js' },
-    { name: 'FIREWORKS', file: 'fireworks.js' },
     { name: 'BURST', file: 'burst.js' },
+    { name: 'FIREWORKS', file: 'fireworks.js' },
     { name: 'MATRIX', file: 'matrix.js' },
     { name: 'RIBBON', file: 'ribbon.js' },
     { name: 'SPIRAL', file: 'spiral.js' },
