@@ -8,6 +8,21 @@
   "previews": [],
   "type": "app",
   "readme": "README.md",
-  "storage": [{ "name": "HOLO/MESMETRON/APP.JS", "url": "APP.MIN.JS" }],
+  "storage": [{ "name": "HOLO/MESMETRON/APP.JS", "url": "APP.MIN.JS" },
+             { "name": "HOLO/MESMETRON/assets/TITLE.JS", "url": "TITLE.MIN.JS" },
+             { "name": "HOLO/MESMETRON/assets/MSMR.BIN", "url": "MSMR.BIN" },
+             { "name": "HOLO/MESMETRON/assets/wild.wav", "url": "wild.wav" },
+             { "name": "HOLO/MESMETRON/assets/RC.JSON", "url": "RC.JSON" },
+             { "name": "HOLO/MESMETRON/assets/ROACH.JSON", "url": "ROACH.JSON" },
+             { "name": "HOLO/MESMETRON/assets/bounder.js", "url": "bouncer.min.js" },
+             { "name": "HOLO/MESMETRON/assets/burst.js", "url": "burst.min.js" },
+             { "name": "HOLO/MESMETRON/assets/fireworks.js", "url": "fireworks.min.js" },
+             { "name": "HOLO/MESMETRON/assets/matrix.js", "url": "matrix.min.js" },
+             { "name": "HOLO/MESMETRON/assets/ribbon.js", "url": "ribbon.min.js" },
+             { "name": "HOLO/MESMETRON/assets/shapes.js", "url": "shapes.min.js" },
+             { "name": "HOLO/MESMETRON/assets/spiral.js", "url": "spiral.min.js" },
+             { "name": "HOLO/MESMETRON/assets/vortex.js", "url": "vortex.min.js" },
+             { "name": "HOLO/MESMETRON/assets/warp.js", "url": "warp.min.js" },
+             { "name": "HOLO/MESMETRON/assets/web.js", "url": "web.min.js" }]
   "storageOptional": []
 }
