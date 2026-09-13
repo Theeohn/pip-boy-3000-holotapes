@@ -39,17 +39,12 @@
   // be scrolled to or selected.
   const HY1 = BY2 + 1,
     HY2 = 316;
-  // Wrapped once here (wrapping is expensive - see the text wrapping rule)
-  // rather than re-wrapping on every repaint. Line pitch is measured off the
-  // actual rendered glyph height (plus a couple px of breathing room) so the
-  // lines can't overlap no matter what the real font metrics turn out to be.
-  const HINT = h
-    .setFont('Monofonto14')
-    .wrapString(
-      'HOLD LEFT WHEEL TO RETURN TO THIS MENU, SCROLL RIGHT WHEEL FOR VARIANTS',
-      BX2 - BX1 - 20,
-    );
-  const LINEH = h.stringMetrics(HINT[0]).height + 1;
+
+  const HINT = [
+    'HOLD LEFT WHEEL TO RESTORE NORMALITY',
+    'RIGHT WHEEL VIBES, LEFT WHEEL BLINDS'
+  ];
+  const LINEH = h.setFont('Monofonto14').stringMetrics(HINT[0]).height + 1;
   let selected = 0;
   let scroll = 0;
 
