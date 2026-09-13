@@ -23,6 +23,6 @@
              { "name": "HOLO/MESMETRON/assets/spiral.js", "url": "assets/spiral.min.js" },
              { "name": "HOLO/MESMETRON/assets/vortex.js", "url": "assets/vortex.min.js" },
              { "name": "HOLO/MESMETRON/assets/warp.js", "url": "assets/warp.min.js" },
-             { "name": "HOLO/MESMETRON/assets/web.js", "url": "assets/web.min.js" }]
+             { "name": "HOLO/MESMETRON/assets/web.js", "url": "assets/web.min.js" }],
   "storageOptional": []
 }
